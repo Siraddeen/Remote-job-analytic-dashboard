@@ -1,3 +1,169 @@
+# 🚀 Remote Job Analytics Dashboard
+
+An end-to-end **data analytics dashboard** that collects, processes, and visualizes remote job market data in real-time.
+
+---
+
+## 🌍 Live Demo
+
+* 🔗 Frontend: https://siraddeen-remote-job-analytics.netlify.app
+* 🔗 Backend API: https://remote-job-analytic-dashboard.onrender.com
+
+---
+
+## 🧠 Project Overview
+
+This project demonstrates a **complete data pipeline + full-stack system**:
+
+1. 📡 Extract job data from external API
+2. 🧹 Transform and clean data
+3. 💾 Store in PostgreSQL database
+4. ⚡ Serve via Flask REST API
+5. 📊 Visualize using React dashboard
+
+---
+
+## 🏗 Architecture
+
+```
+Frontend (React + Vite)  →  Backend API (Flask)
+                                 ↓
+                         PostgreSQL (Aiven)
+                                 ↓
+                        ETL Pipeline (Python)
+```
+
+---
+
+## ⚙️ Tech Stack
+
+### 🔹 Backend
+
+* Python
+* Flask
+* SQLAlchemy
+* Pandas
+* PostgreSQL (Aiven)
+
+### 🔹 Frontend
+
+* React (Vite)
+* Tailwind CSS
+* Recharts
+
+### 🔹 Deployment
+
+* Render (Backend)
+* Netlify (Frontend)
+
+---
+
+## 📊 Features
+
+* 📈 Job statistics overview (total jobs, companies, categories)
+* 📊 Category-based job distribution
+* 🧩 Job type analysis (full-time, contract, etc.)
+* 📅 Jobs published over time
+* 🏢 Top hiring companies
+* 🔄 Run ETL pipeline dynamically
+
+---
+
+## 🛠 Local Setup
+
+### 1. Clone repository
+
+```bash
+git clone https://github.com/Siraddeen/Remote-job-analytic-dashboard.git
+cd Remote-job-analytic-dashboard
+```
+
+---
+
+### 2. Backend setup
+
+```bash
+cd backend
+python -m venv venv
+venv\Scripts\activate   # Windows
+pip install -r requirements.txt
+```
+
+Create `.env`:
+
+```env
+DB_TYPE=postgresql
+DATABASE_URL=your_database_url
+```
+
+Run:
+
+```bash
+python -m etl.pipeline
+python -m api.app
+```
+
+---
+
+### 3. Frontend setup
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+---
+
+## ⚠️ Challenges & Learnings
+
+* Fixed **Python version mismatch (3.14 → 3.11)** for deployment
+* Resolved **pandas build failure on Render**
+* Understood **Vite environment variable behavior**
+* Solved **frontend-backend connection issues**
+* Handled **SQL type mismatch errors**
+* Learned **cloud deployment (Render + Netlify)**
+* Configured **CORS and API routing properly**
+
+---
+
+## 🔮 Future Improvements
+
+* Add authentication system
+* Enable job filtering/search
+* Schedule automated ETL runs
+* Improve UI/UX and responsiveness
+* Add caching for faster performance
+
+---
+
+## 💬 Final Thoughts
+
+This project reflects my ability to:
+
+✔ Build full-stack applications
+✔ Design and implement data pipelines
+✔ Debug real-world deployment issues
+✔ Deploy scalable systems on cloud
+
+---
+
+## 📌 Author
+
+**Siraddeen**
+
+---
+
+## ⭐ If you like this project
+
+Give it a star ⭐ and feel free to connect!
+
+<!-- 
+This is a multiline comment.
+None of these lines will appear 
+in the rendered README file.
+
+
 # 🔄 Remote Jobs Data Pipeline & Analytics Dashboard
 
 An end-to-end data engineering project built to demonstrate
@@ -228,3 +394,5 @@ The React app never talks directly to the DB — only through the API.
 **Data Quality:**
 Transform stage checks for nulls, duplicates, and inconsistent
 formatting before anything reaches the database.
+
+-->
