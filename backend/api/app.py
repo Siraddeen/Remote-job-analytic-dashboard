@@ -125,8 +125,19 @@ def get_latest():
         return jsonify({"error": str(e)}), 500
 
 
-# ── ENTRY POINT ───────────────────────────────────────────────
+# port = int(os.environ.get("PORT", 5000))
+# app.run(host="0.0.0.0", port=port)A
+
+
+# # ── ENTRY POINT ───────────────────────────────────────────────
+# if __name__ == "__main__":
+#     port = int(os.getenv("FLASK_PORT", 5000))
+#     print(f"🚀 API running at http://localhost:{port}")
+#     app.run(debug=True, port=port)
+
+
 if __name__ == "__main__":
-    port = int(os.getenv("FLASK_PORT", 5000))
+    import os
+    port = int(os.environ.get("PORT", 5000))
     print(f"🚀 API running at http://localhost:{port}")
-    app.run(debug=True, port=port)
+    app.run(host="0.0.0.0", port=port)
