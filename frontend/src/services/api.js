@@ -14,12 +14,9 @@ import axios from "axios";
 // In dev, Vite proxies /api → http://localhost:5000
 // In production, set VITE_API_URL in your .env
 
-// const BASE = import.meta.env.VITE_API_URL;
-// // const BASE = "http://localhost:5000";
+const BASE = import.meta.env.VITE_API_URL;
+// const BASE = "http://localhost:5000";
 
-const BASE =
-  import.meta.env.VITE_API_URL ||
-  "https://remote-job-analytic-dashboard.onrender.com";
 const api = axios.create({ baseURL: BASE });
 
 export const getStats = () => api.get("/api/stats");
