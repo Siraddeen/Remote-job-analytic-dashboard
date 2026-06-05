@@ -126,7 +126,7 @@ def get_latest():
 
 
 # port = int(os.environ.get("PORT", 5000))
-# app.run(host="0.0.0.0", port=port)A
+# app.run(host="0.0.0.0", port=port)
 
 
 # # ── ENTRY POINT ───────────────────────────────────────────────
@@ -139,5 +139,5 @@ def get_latest():
 if __name__ == "__main__":
     import os
     port = int(os.environ.get("PORT", 5000))
-    print(f"🚀 API running at http://localhost:{port}")
+    print(f"[Started] API running at http://localhost:{port}")
     app.run(host="0.0.0.0", port=port)

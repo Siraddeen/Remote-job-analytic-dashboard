@@ -19,7 +19,7 @@ import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-from db.connection import get_connection
+from db.connection import get_connection, is_postgres
 
 
 def _fetchall_as_dicts(cursor, query, params=None):
@@ -164,10 +164,16 @@ def summary_stats():
     cursor.execute("SELECT COUNT(DISTINCT category) FROM jobs;")
     categories = cursor.fetchone()[0]
 
-    cursor.execute("""
-        SELECT COUNT(*) FROM jobs
-        WHERE CAST(SUBSTR(publication_date, 1, 10) AS DATE) = CURRENT_DATE;
-    """)
+    if is_postgres():
+        cursor.execute("""
+            SELECT COUNT(*) FROM jobs
+            WHERE CAST(SUBSTR(publication_date, 1, 10) AS DATE) = CURRENT_DATE;
+        """)
+    else:
+        cursor.execute("""
+            SELECT COUNT(*) FROM jobs
+            WHERE SUBSTR(publication_date, 1, 10) = date('now');
+        """)
     today = cursor.fetchone()[0]
 
     cursor.close()

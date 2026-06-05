@@ -43,7 +43,12 @@ export default function App() {
       setJobs(latest.data)
       setLastUpdated(new Date().toLocaleTimeString())
     } catch (err) {
-      setError('Could not connect to the backend. Make sure Flask is running on port 5000.')
+      const backendError = err.response?.data?.error || err.response?.data?.message;
+      if (backendError) {
+        setError(`Backend Error: ${backendError}`);
+      } else {
+        setError('Could not connect to the backend. Make sure Flask is running and accessible.');
+      }
     } finally {
       setLoading(false)
     }
